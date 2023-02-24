@@ -4,15 +4,19 @@ public class Main {
     public static void main(String[] args) {
 
         MagicBox<String> boxString = new MagicBox<>(1);
-        boxString.add("cup");
-        boxString.add("ball");
-        boxString.pick();
+
+        System.out.println("Добавили строку " + boxString.add("cup"));
+        System.out.println(boxString.pick());
 
         MagicBox<Integer> boxInt = new MagicBox<>(3);
 
-        boxInt.add(5);
-        boxInt.add(88);
-        boxInt.add(111);
-        boxInt.pick();
+        System.out.println("Добавили число " + boxInt.add(5));
+        System.out.println("Добавили число " + boxInt.add(20));
+//        System.out.println("Добавили число " + boxInt.add(70));
+//        System.out.println("Добавили число " + boxInt.add(88));
+
+        System.out.println(boxInt.pick());
+
+
     }
 }

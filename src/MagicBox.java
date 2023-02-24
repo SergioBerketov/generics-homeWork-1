@@ -26,7 +26,7 @@ public class MagicBox<T> {
 
         for (int i = 0; i < objects.length; i++) {
             if (objects[i] == null) {
-                throw new RuntimeException("Коробка не полна, и осталось ещё " + objects.length + " ячеек заполнить");
+                throw new RuntimeException("Коробка не полна, и осталось ещё " + (objects.length -1) + " ячеек заполнить");
             } else if (objects[i] != null) {
 
                 Random random = new Random();
