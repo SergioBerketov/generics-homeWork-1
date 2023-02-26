@@ -12,10 +12,11 @@ public class Main {
 
         System.out.println("Добавили число " + boxInt.add(5));
         System.out.println("Добавили число " + boxInt.add(20));
-//        System.out.println("Добавили число " + boxInt.add(70));
-//        System.out.println("Добавили число " + boxInt.add(88));
-
         System.out.println(boxInt.pick());
+
+
+
+
 
 
     }

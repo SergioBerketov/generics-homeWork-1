@@ -22,18 +22,25 @@ public class MagicBox<T> {
 
     public int pick() {
 
-        int count = 0;
+        int randomPoint = 0;
+        int finalSize = objects.length;
+
+        for (T obj : objects) {
+            if (obj != null) {
+                finalSize--;
+                Random random = new Random();
+                int randomInt = random.nextInt(objects.length);
+                randomPoint += randomInt;
+            }
+        }
 
         for (int i = 0; i < objects.length; i++) {
             if (objects[i] == null) {
-                throw new RuntimeException("Коробка не полна, и осталось ещё " + (objects.length -1) + " ячеек заполнить");
-            } else if (objects[i] != null) {
-
-                Random random = new Random();
-                int randomInt = random.nextInt(objects.length);
-                count += randomInt;
+                throw new RuntimeException("Коробка не полна, и осталось ещё " + finalSize + " ячеек заполнить");
             }
         }
-        return count;
+        System.out.println("Коробка полна!");
+        return randomPoint;
     }
 }
+
