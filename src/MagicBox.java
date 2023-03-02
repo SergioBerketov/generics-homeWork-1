@@ -1,6 +1,8 @@
 import java.sql.Struct;
 import java.util.Random;
 
+import static java.lang.Math.random;
+
 public class MagicBox<T> {
     private T[] objects;
 
@@ -20,25 +22,26 @@ public class MagicBox<T> {
         return false;
     }
 
-    public int pick() {
+    public T pick() {
 
-        int randomPoint = 0;
+        T randomPoint = null;
         int finalSize = objects.length;
-
-        for (T obj : objects) {
-            if (obj != null) {
-                finalSize--;
-                Random random = new Random();
-                int randomInt = random.nextInt(objects.length);
-                randomPoint += randomInt;
-            }
-        }
 
         for (int i = 0; i < objects.length; i++) {
             if (objects[i] == null) {
                 throw new RuntimeException("Коробка не полна, и осталось ещё " + finalSize + " ячеек заполнить");
             }
+            finalSize--;
         }
+
+        for (T obj : objects) {
+            if (obj != null) {
+                Random random = new Random();
+                int randomInt = random.nextInt(objects.length);
+                randomPoint = objects[randomInt];
+            }
+        }
+
         System.out.println("Коробка полна!");
         return randomPoint;
     }
